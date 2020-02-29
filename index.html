@@ -7,5 +7,16 @@
 		<script src="script.js" defer></script>
 		<title>Students Grades Book App</title>
 	</head>
-	<body></body>
+	<body>
+		<div id="students-list-wrapper">
+			<h1>Students list</h1>
+			<label>Name: <input class="student-name" type="text"/></label>
+			<button onclick="addStudent(event)">Add student</button>
+
+			<ul class="table-head">
+				<li class="bold"><span>Name</span><span>Grades</span></li>
+			</ul>
+			<ul class="table-body"></ul>
+		</div>
+	</body>
 </html>
