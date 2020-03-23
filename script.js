@@ -1,41 +1,27 @@
 const STUDENT_NAME = document.querySelector('.student-name');
 const TABLE_BODY = document.querySelector('.table-body');
 
-const LIST = [
-  {
-    name: 'ion',
-    grades: []
+class Student {
+  constructor(name) {
+    this.name = name;
+    this.grades = [];
+    this.averageGrade = '';
   }
-];
 
-let editIdx;
-
-function draw() {
-  let str = '';
-  for (let i = 0; i < LIST.length; i++) {
-    str += `
-		<li><span>${LIST[i].name}</span><span>${LIST[i].grades}</span><button onclick="seeGrades(${i})">See grades</button></li>
-	`;
+  addGrade(grade) {
+    this.grades.push(grade);
   }
-  TABLE_BODY.innerHTML = str;
+
+  calcAverageGrade() {
+    let gradesSum = 0;
+
+    if (this.grades.length === 0) {
+      this.averageGrade = '';
+    } else {
+      for (let i = 0; i < this.grades.length; i++) {
+        gradesSum += this.grades[i];
+      }
+      this.averageGrade = gradesSum / this.grades.length;
+    }
+  }
 }
-
-function addStudent(event) {
-  event.preventDefault();
-
-  const NEW_STUDENT = {
-    name: STUDENT_NAME.value
-  };
-
-  if (editIdx === undefined) {
-    LIST.push(NEW_STUDENT);
-  } else {
-    LIST[editIdx] = NEW_STUDENT;
-  }
-
-  STUDENT_NAME.value = '';
-
-  draw();
-}
-
-function seeGrades(idx) { }
