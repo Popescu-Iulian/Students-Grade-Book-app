@@ -25,13 +25,21 @@
 			</div>
 		</div>
 
-		<div class="grades-table">
+		<div class="table">
 			<button onclick="hideGrades()">Hide grades</button>
-			<label><input type="text" class="student-grade"/></label>
+			<br />
+			<br />
+			<label>Grade: <input type="text" class="student-grade"/></label>
 			<button onclick="addGrade()">Add grade</button>
 			<button onclick="sortAscGrades()">Sort asc</button>
 			<button onclick="sortDescGrades()">Sort desc</button>
-			<ul class="grades-table-body"></ul>
+			<div class="grades-table">
+				<p>Student <span class="current-student">ABC</span></p>
+				<ul class="grades-table-head">
+					<li class="bold">Grades</li>
+				</ul>
+				<ul class="grades-table-body"></ul>
+			</div>
 		</div>
 	</body>
 </html>

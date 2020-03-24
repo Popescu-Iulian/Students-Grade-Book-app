@@ -2,6 +2,7 @@ const STUDENT_NAME = document.querySelector('.student-name');
 const TABLE_BODY = document.querySelector('.table-body');
 const GRADES_BODY = document.querySelector('.grades-table-body');
 const STUDENT_GRADE = document.querySelector('.student-grade');
+const CURRENT_STUDENT = document.querySelector('.current-student');
 
 class Students {
   constructor(name) {
@@ -112,6 +113,7 @@ function sortDescAverageGrade() {
 
 function seeOrAddGrades(idx) {
   gradesBook.seeGrades(idx);
+  CURRENT_STUDENT.textContent = '';
   drawGrades();
   // remove hidden class
 }
