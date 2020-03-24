@@ -7,24 +7,28 @@ class Students {
   constructor(name) {
     this.name = name;
     this.grades = [];
-    this.averageGrade;
+    this.averageGrade = '';
   }
 
   addGrade(grade) {
     this.grades.push(grade);
+    console.log(this.grades);
+    console.log(this.grades.length);
+    console.log(this.averageGrade);
   }
 
   calcAverageGrade() {
     let gradesSum = 0;
 
+    for (let i = 0; i < this.grades.length; i++) {
+      gradesSum += this.grades[i];
+    }
+
     if (this.grades.length === 0) {
       this.averageGrade = '';
-    } else {
-      for (let i = 0; i < this.grades.length; i++) {
-        gradesSum += this.grades[i];
-      }
-      this.averageGrade = gradesSum / this.grades.length;
     }
+
+    this.averageGrade = gradesSum / this.grades.length;
   }
 }
 
@@ -75,6 +79,9 @@ function drawStudents() {
     str += `
       <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeOrAddGrades(${i})">See or add grades</button></li>
     `;
+    console.log(student.name);
+    console.log(student.grades);
+    console.log(student.averageGrade);
   }
 
   TABLE_BODY.innerHTML = str;
@@ -97,6 +104,7 @@ function drawGrades() {
 function addStudent() {
   let studentName = STUDENT_NAME.value;
   gradesBook.addStudent(studentName);
+  STUDENT_NAME.value = '';
   drawStudents();
 }
 
@@ -123,7 +131,9 @@ function hideGrades() {
 function addGrade() {
   let studentGrade = STUDENT_GRADE.value;
   gradesBook.addGrade(studentGrade);
+  STUDENT_GRADE.value = '';
   drawGrades();
+  drawStudents();
 }
 
 function sortAscGrades() {
