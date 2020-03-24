@@ -35,3 +35,7 @@ li {
 .students-table {
 	background-color: palegoldenrod;
 }
+
+.grades-table-body {
+	background-color: bisque;
+}

@@ -66,3 +66,29 @@ class GradesBook {
 
 let gradesBook = new GradesBook();
 
+function drawStudents() {
+  let str = '';
+
+  for (let i = 0; i < gradesBook.students.length; i++) {
+    let student = gradesBook.students[i];
+    str += `
+      <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeGrades(${i})">See grades</button></li>
+    `;
+  }
+
+  TABLE_BODY.innerHTML = str;
+}
+
+function drawGrades() {
+  let grades = gradesBook.evaluatedStudent.grades;
+  let str = '';
+
+  for (let i = 0; i < grades.length; i++) {
+    let grade = grades[i];
+    str += `
+      <li>${grade}</li>
+    `;
+  }
+
+  GRADES_BODY.innerHTML = str;
+}
