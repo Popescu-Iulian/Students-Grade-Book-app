@@ -10,22 +10,20 @@ class Students {
     this.averageGrade = '';
   }
 
-  addGrade(grade) {
+  addNewGrade(grade) {
     this.grades.push(grade);
-  }
 
-  calcAverageGrade() {
     let gradesSum = 0;
 
     for (let i = 0; i < this.grades.length; i++) {
-      gradesSum += this.grades[i];
+      gradesSum += Number(this.grades[i]);
     }
 
     if (this.grades.length === 0) {
       this.averageGrade = '';
     }
 
-    this.averageGrade = gradesSum / this.grades.length;
+    this.averageGrade = Number.parseFloat(gradesSum / this.grades.length).toFixed(2);
   }
 }
 
@@ -35,8 +33,8 @@ class GradesBook {
     this.evaluatedStudent;
   }
 
-  addStudent(str) {
-    let student = new Students(str);
+  addStudent(new_student) {
+    let student = new Students(new_student);
     this.students.push(student);
   }
 
@@ -53,8 +51,8 @@ class GradesBook {
     this.students.sort((a, b) => b.averageGrade - a.averageGrade);
   }
 
-  addGrade(str) {
-    this.evaluatedStudent.addGrade(str);
+  addGrades(new_grade) {
+    this.evaluatedStudent.addNewGrade(new_grade);
   }
 
   sortGradeAsc() {
@@ -76,10 +74,6 @@ function drawStudents() {
     str += `
       <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeOrAddGrades(${i})">See or add grades</button></li>
     `;
-
-    console.log(student.grades);
-    console.log(student.grades.length);
-    console.log(student.averageGrade);
   }
 
   TABLE_BODY.innerHTML = str;
@@ -128,7 +122,7 @@ function hideGrades() {
 
 function addGrade() {
   let studentGrade = STUDENT_GRADE.value;
-  gradesBook.addGrade(studentGrade);
+  gradesBook.addGrades(studentGrade);
   STUDENT_GRADE.value = '';
   drawGrades();
   drawStudents();
