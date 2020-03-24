@@ -1,6 +1,7 @@
 const STUDENT_NAME = document.querySelector('.student-name');
 const TABLE_BODY = document.querySelector('.table-body');
 const GRADES_BODY = document.querySelector('.grades-table-body');
+const STUDENT_GRADE = document.querySelector('.student-grade');
 
 class Students {
   constructor(name) {
@@ -72,7 +73,7 @@ function drawStudents() {
   for (let i = 0; i < gradesBook.students.length; i++) {
     let student = gradesBook.students[i];
     str += `
-      <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeGrades(${i})">See grades</button></li>
+      <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeOrAddGrades(${i})">See or add grades</button></li>
     `;
   }
 
@@ -91,4 +92,46 @@ function drawGrades() {
   }
 
   GRADES_BODY.innerHTML = str;
+}
+
+function addStudent() {
+  let studentName = STUDENT_NAME.value;
+  gradesBook.addStudent(studentName);
+  drawStudents();
+}
+
+function sortAscAverageGrade() {
+  gradesBook.sortAverageGradeAsc();
+  drawStudents();
+}
+
+function sortDescAverageGrade() {
+  gradesBook.sortAverageGradeDesc();
+  drawStudents();
+}
+
+function seeOrAddGrades(idx) {
+  gradesBook.seeGrades(idx);
+  drawGrades();
+  // remove hidden class
+}
+
+function hideGrades() {
+  // add hidden class
+}
+
+function addGrade() {
+  let studentGrade = STUDENT_GRADE.value;
+  gradesBook.addGrade(studentGrade);
+  drawGrades();
+}
+
+function sortAscGrades() {
+  gradesBook.sortGradeAsc();
+  drawGrades();
+}
+
+function sortDescGrades() {
+  gradesBook.sortGradeDesc();
+  drawGrades();
 }

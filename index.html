@@ -12,6 +12,8 @@
 			<h1>Students list</h1>
 			<label>Name: <input class="student-name" type="text"/></label>
 			<button onclick="addStudent()">Add student</button>
+			<button onclick="sortAscAverageGrade()">Sort asc</button>
+			<button onclick="sortDescAverageGrade()">Sort desc</button>
 
 			<div class="students-table">
 				<ul class="table-head">
@@ -22,6 +24,11 @@
 		</div>
 
 		<div class="grades-table">
+			<button onclick="hideGrades()">Hide grades</button>
+			<input type="text" class="student-grade" />
+			<button onclick="addGrade()">Add grade</button>
+			<button onclick="sortAscGrades()">Sort asc</button>
+			<button onclick="sortDescGrades()">Sort desc</button>
 			<ul class="grades-table-body"></ul>
 		</div>
 	</body>
