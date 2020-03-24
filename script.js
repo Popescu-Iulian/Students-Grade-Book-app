@@ -12,9 +12,6 @@ class Students {
 
   addGrade(grade) {
     this.grades.push(grade);
-    console.log(this.grades);
-    console.log(this.grades.length);
-    console.log(this.averageGrade);
   }
 
   calcAverageGrade() {
@@ -79,8 +76,9 @@ function drawStudents() {
     str += `
       <li><span>${student.name}</span><span>${student.averageGrade}</span><button onclick="seeOrAddGrades(${i})">See or add grades</button></li>
     `;
-    console.log(student.name);
+
     console.log(student.grades);
+    console.log(student.grades.length);
     console.log(student.averageGrade);
   }
 
