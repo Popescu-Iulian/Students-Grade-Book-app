@@ -4,6 +4,9 @@ const GRADES_BODY = document.querySelector('.grades-table-body');
 const STUDENT_GRADE = document.querySelector('.student-grade');
 const CURRENT_STUDENT = document.querySelector('.current-student');
 
+let tableGrades = document.querySelector('.table-grades');
+let hideGradesTable = document.querySelector('.hide-grades');
+
 class Students {
   constructor(name) {
     this.name = name;
@@ -31,7 +34,7 @@ class Students {
 class GradesBook {
   constructor() {
     this.students = [];
-    this.evaluatedStudent;
+    this.evaluatedStudent = '';
   }
 
   addStudent(new_student) {
@@ -42,6 +45,7 @@ class GradesBook {
   seeGrades(idx) {
     let student = this.students[idx];
     this.evaluatedStudent = student;
+    //return this.name; //////////////////////////////////////
   }
 
   sortAverageGradeAsc() {
@@ -112,14 +116,16 @@ function sortDescAverageGrade() {
 }
 
 function seeOrAddGrades(idx) {
+  tableGrades.classList.remove('hidden');
+
   gradesBook.seeGrades(idx);
-  CURRENT_STUDENT.textContent = '';
+  CURRENT_STUDENT.textContent = student; /////////////////////////////
+  console.log(student);
   drawGrades();
-  // remove hidden class
 }
 
 function hideGrades() {
-  // add hidden class
+  tableGrades.classList.add('hidden');
 }
 
 function addGrade() {
