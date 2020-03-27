@@ -45,7 +45,6 @@ class GradesBook {
   seeGrades(idx) {
     let student = this.students[idx];
     this.evaluatedStudent = student;
-    //return this.name; //////////////////////////////////////
   }
 
   sortAverageGradeAsc() {
@@ -119,8 +118,7 @@ function seeOrAddGrades(idx) {
   tableGrades.classList.remove('hidden');
 
   gradesBook.seeGrades(idx);
-  CURRENT_STUDENT.textContent = student; /////////////////////////////
-  console.log(student);
+  CURRENT_STUDENT.textContent = gradesBook.evaluatedStudent.name;
   drawGrades();
 }
 
