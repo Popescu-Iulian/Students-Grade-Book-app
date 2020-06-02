@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<script src="script.js" defer></script>
-		<title>Students Grades Book App</title>
-	</head>
-	<body>
-		<div id="students-list-wrapper">
-			<h1>Students list</h1>
-			<label>Name: <input class="student-name" type="text"/></label>
-			<button onclick="addStudent()">Add student</button>
-			<button onclick="sortAscAverageGrade()">Sort asc</button>
-			<button onclick="sortDescAverageGrade()">Sort desc</button>
 
-			<div class="students-table">
-				<ul class="table-head">
-					<li class="bold">
-						<span>Student Name</span><span>Average Grade</span>
-					</li>
-				</ul>
-				<ul class="table-body"></ul>
-			</div>
-		</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="script.js" defer></script>
+	<title>Students Grades Book App</title>
+</head>
 
-		<div class="table-grades hidden">
-			<button class="hide-grades" onclick="hideGrades()">Hide grades</button>
-			<br />
-			<br />
-			<label>Grade: <input type="text" class="student-grade"/></label>
-			<button onclick="addGrade()">Add grade</button>
-			<button onclick="sortAscGrades()">Sort asc</button>
-			<button onclick="sortDescGrades()">Sort desc</button>
-			<div class="grades-table">
-				<p>Student <span class="current-student">ABC</span></p>
-				<ul class="grades-table-head">
-					<li class="bold">Grades</li>
-				</ul>
-				<ul class="grades-table-body"></ul>
-			</div>
+<body>
+	<div id="students-list-wrapper">
+		<h1>Students list</h1>
+		<label>Name: <input class="student-name" type="text" / onkeypress="addStudentByEnter(event)"></label>
+		<button onclick="addStudent()">Add student</button>
+		<button onclick="sortAscAverageGrade()">Sort asc</button>
+		<button onclick="sortDescAverageGrade()">Sort desc</button>
+
+		<div class="students-table">
+			<ul class="table-head">
+				<li class="bold">
+					<span>Student Name</span><span>Average Grade</span>
+				</li>
+			</ul>
+			<ul class="table-body"></ul>
 		</div>
-	</body>
+	</div>
+
+	<div class="table-grades hidden">
+		<button class="hide-grades" onclick="hideGrades()">Hide grades</button>
+		<br />
+		<br />
+		<label>Grade: <input type="text" class="student-grade" onkeypress="addGradeByEnter(event)" /></label>
+		<button onclick="addGrade()">Add grade</button>
+		<button onclick="sortAscGrades()">Sort asc</button>
+		<button onclick="sortDescGrades()">Sort desc</button>
+		<div class="grades-table">
+			<p>Student <span class="current-student">ABC</span></p>
+			<ul class="grades-table-head">
+				<li class="bold">Grades</li>
+			</ul>
+			<ul class="grades-table-body"></ul>
+		</div>
+	</div>
+</body>
+
 </html>
